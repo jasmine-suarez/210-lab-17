@@ -1,3 +1,6 @@
+// COMSC-210 | Lab 17 | Jasmine Suarez
+// IDE used: VS Code
+
 #include <iostream>
 using namespace std;
 
