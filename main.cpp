@@ -12,11 +12,11 @@ struct Node {
 };
 
 // function prototypes
-void addFront(Node*&, float);
-void addTail(Node*&, float);
-void deleteNode(Node*&, int);
-void insertNode(Node*&, int, float);
-void deleteList(Node*&);
+void addFront(Node *&, float);
+void addTail(Node *&, float);
+void deleteNode(Node *&, int);
+void insertNode(Node *&, int, float);
+void deleteList(Node *&);
 void output(Node *);
 
 int main() {
@@ -106,6 +106,26 @@ int main() {
     output(head);
 
     return 0;
+}
+
+void addFront(Node *& head, float val) {
+
+}
+
+void addTail(Node *& head, float val) {
+
+}
+
+void deleteNode(Node *& head, int position) {
+
+}
+
+void insertNode(Node *& head, int position, float val) {
+
+}
+
+void deleteList(Node *& head) {
+
 }
 
 void output(Node * hd) {
