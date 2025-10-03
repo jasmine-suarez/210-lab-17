@@ -83,6 +83,12 @@ void addTail(Node *& head, float val) {
 
 void deleteNode(Node *& head, int position) {
     Node *current = head;
+    if (position == 1) {
+        head = current->next;
+        delete current;
+        return;
+    }
+
     Node *prev = head;
 
     for (int i = 0; i < (position - 1); i++) {
@@ -102,6 +108,12 @@ void deleteNode(Node *& head, int position) {
 }
 
 void insertNode(Node *& head, int position, float val) {
+    Node *newVal = new Node;
+    newVal->value = val;
+    newVal->next = nullptr;
+    if (!head) {
+        
+    }
     Node *current = head;
     Node *prev = head;
     for (int i = 0; i < (position); i++)
@@ -111,10 +123,6 @@ void insertNode(Node *& head, int position, float val) {
             current = current->next;
             prev = prev->next;
         }
-    Node *newVal = new Node;
-    newVal->value = val;
-    newVal->next = current;
-    prev->next = newVal;
 }
 
 void deleteList(Node *& head) {
