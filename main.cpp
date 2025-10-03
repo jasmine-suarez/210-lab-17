@@ -98,15 +98,34 @@ int main() {
 
 void addFront(Node *& head, float val) {
     Node *newVal = new Node;
-    
+    newVal->value = val;
+    newVal->next = head;
+    head = newVal;
 }
 
 void addTail(Node *& head, float val) {
+    // create a new node
+    Node *newVal = new Node;
+    newVal->value = val;
+    newVal->next = nullptr;
 
+    // check if list is empty
+    if (!head) {
+        head = newVal;
+        return;
+    }
+
+    // traverse to end of list
+    Node *current = head;
+    while (current->next)
+        current = current->next;
+
+    // links the node at the end
+    current->next = newVal;
 }
 
 void deleteNode(Node *& head, int position) {
-
+    Node * current = head;
 }
 
 void insertNode(Node *& head, int position, float val) {
