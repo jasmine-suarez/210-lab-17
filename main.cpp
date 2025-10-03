@@ -11,6 +11,12 @@ struct Node {
     Node *next;
 };
 
+// function prototypes
+void addFront(Node*&, float);
+void addTail(Node*&, float);
+void deleteNode(Node*&, int);
+void insertNode(Node*&, int, float);
+void deleteList(Node*&);
 void output(Node *);
 
 int main() {
