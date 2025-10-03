@@ -90,21 +90,16 @@ void deleteNode(Node *& head, int position) {
     }
 
     Node *prev = head;
-
-    for (int i = 0; i < (position - 1); i++) {
-        if (i == 0)
-            current = current->next;
-        else {
-            current = current->next;
+    for (int i = 1; i < position; i++) {
+        current = current->next;
+        if (!current)
+            return;
+        if (i > 1)
             prev = prev->next;
-        }
     }
 
-    if (current) {
-        prev->next = current->next;
-        delete current;
-        current = nullptr;
-    }
+    prev->next = current->next;
+    delete current;
 }
 
 void insertNode(Node *& head, int position, float val) {
@@ -112,17 +107,20 @@ void insertNode(Node *& head, int position, float val) {
     newVal->value = val;
     newVal->next = nullptr;
     if (!head) {
-        
+        newVal->next = head;
+        head = newVal;
+        return;
     }
+
     Node *current = head;
-    Node *prev = head;
-    for (int i = 0; i < (position); i++)
-        if (i == 0)
-            current = current->next;
-        else {
-            current = current->next;
-            prev = prev->next;
-        }
+    Node *prev = nullptr;
+    for (int i = 0; i < position; i++) {
+        prev = current;
+        current = current->next;
+    }
+
+    newVal->next = current;
+    prev->next = newVal;
 }
 
 void deleteList(Node *& head) {
@@ -132,6 +130,7 @@ void deleteList(Node *& head) {
         delete current;
         current = nextNode;
     }
+    head = nullptr;
 }
 
 void output(Node * hd) {
